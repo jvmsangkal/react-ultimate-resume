@@ -1,166 +1,172 @@
 {
     "basics": {
-        "name": "John Doe",
-        "label": "Programmer",
+        "name": "John Viscel Sangkal",
+        "label": "Lead Full Stack Engineer",
         "picture": "",
-        "email": "john@gmail.com",
-        "phone": "(912) 555-4321",
-        "website": "http://johndoe.com",
+        "email": "jvmsangkal@gmail.com",
+        "phone": "(917) 837-9234",
+        "website": "https://jvmsangkal.github.io",
         "summary": "A summary of John Doe...",
         "location": {
-            "address": "2712 Broadway St",
-            "postalCode": "CA 94115",
-            "city": "San Francisco",
-            "countryCode": "US",
-            "region": "California"
+            "address": "2882 National Hwy",
+            "postalCode": "4030",
+            "city": "Los Baños, Laguna",
+            "countryCode": "PH",
+            "region": "Calabarzon"
         },
         "profiles": [
             {
                 "network": "Twitter",
-                "username": "john",
-                "url": "http://twitter.com/john"
+                "username": "jvms_dev",
+                "url": "http://twitter.com/jvms_dev"
             }
         ]
     },
     "work": [
         {
-            "name": "Company 2 ",
-            "position": "Worker",
-            "website": "http://company.com",
-            "startDate": "2014-01-01",
+            "name": "ImportGenius",
+            "position": "Lead Full Stack Engineer",
+            "website": "https://www.importgenius.com/",
+            "startDate": "2017-03-01",
+            "endDate": "2020-02-14",
             "summary": "Description...",
-            "location": "Paris, France",
-            "highlights": ["Started the company"]
+            "location": "Quezon City, Philippines",
+            "highlights": [
+                "Improved performance of web applications by converting them to PWA written in VueJS",
+                "Lead different teams in the company such as the frontend team and the data engineering team",
+                "Promoted from Full Stack Engineer to Lead Full stack after 1 year of working at the company",
+                "Improved team productivity and site reliability by automating CI/CD pipelines in Gitlab",
+                "Improved performance of different data processing scripts using multiprocessing in Python",
+                "Setup and maintained company infrastructure in AWS",
+                "Mentored junior developers and conducted brown-bag sessions"
+            ]
         },
         {
-            "name": "What a nice office",
-            "position": "President",
-            "website": "http://company.com",
-            "startDate": "2013-01-01",
-            "endDate": "2014-01-01",
+            "name": "Yondu, Inc.",
+            "position": "Software Engineer",
+            "website": "https://www.yondu.com/",
+            "startDate": "2016-10-05",
+            "endDate": "2017-02-28",
             "summary": "Description...",
-            "location": "Paris, France",
-            "highlights": ["Started the company"]
+            "location": "Taguig City, Philippines",
+            "highlights": [
+                "Built features for a bank client's internal web application",
+                "Built features for a geothermal energy company's internal application"
+            ]
         },
         {
-            "name": "What a nice experience",
-            "position": "Lead dev",
-            "website": "http://company.com",
+            "name": "MCN Freedom! Tech, Inc.",
+            "position": "Software Engineer",
+            "website": "https://www.freedom.tm/",
+            "startDate": "2015-07-01",
+            "endDate": "2016-07-31",
             "summary": "Description...",
-            "location": "Paris, France",
-            "highlights": ["Started the company"]
-        }
-    ],
-    "volunteer": [
+            "location": "Quezon City, Philippines",
+            "highlights": [
+                "Built features and maintained code for the company’s products",
+                "Automated generating and processing monthly earnings reports from Youtube",
+                "Created browser automation scripts and web crawlers",
+                "Handled deployment to AWS"
+            ]
+        },
         {
-            "organization": "Organization",
-            "position": "Volunteer",
-            "website": "http://organization.com/",
-            "endDate": "2013-01-01",
+            "name": "FactSet Research Systems",
+            "position": "Software Engineer Intern",
+            "website": "https://www.factset.com/",
+            "startDate": "2014-06-01",
+            "endDate": "2014-07-31",
             "summary": "Description...",
-            "highlights": ["Awarded 'Volunteer of the Month'"]
+            "location": "Taguig City, Philippines",
+            "highlights": ["Owned and improved design and usability of an internal web application using Perl, Bootstrap, and JavaScript"]
         }
     ],
+    "volunteer": [],
     "education": [
         {
-            "institution": "ISEN",
-            "area": "Software Development",
-            "studyType": "Engineer Degree",
-            "startDate": "2011-01-01",
-            "endDate": "2013-01-01",
-            "gpa": "4.0",
-            "courses": ["DB1101 - Basic SQL"]
-        },
-        {
-            "institution": "Université d'artois",
-            "area": "",
-            "studyType": "",
-            "startDate": "2011-01-01",
-            "endDate": "",
-            "gpa": "4.0",
-            "courses": ["DB1101 - Basic SQL"]
+            "institution": "University of the Philippines Los Baños",
+            "area": "Computer Science",
+            "studyType": "Bachelor's Degree",
+            "startDate": "2011-07-01",
+            "endDate": "2015-07-01",
+            "gpa": "",
+            "courses": []
         }
     ],
-    "awards": [
-        {
-            "title": "Award",
-            "date": "2014-11-01",
-            "awarder": "Company",
-            "summary": "There is no spoon."
-        }
-    ],
-    "publications": [
-        {
-            "name": "Publication",
-            "publisher": "Company",
-            "releaseDate": "2014-10-01",
-            "website": "http://publication.com",
-            "summary": "Description..."
-        }
-    ],
+    "awards": [],
+    "publications": [],
     "skills": [
         {
-            "name": "Reactaaa",
+            "name": "NodeJS",
+            "level": "Master",
+            "value": 100,
+            "keywords": ["Javascript", "Serverside", "Frontend"]
+        },
+        {
+            "name": "Python",
+            "level": "Master",
+            "value": 100,
+            "keywords": ["Python", "Scripting"]
+        },
+        {
+            "name": "React",
+            "level": "Master",
+            "value": 90,
+            "keywords": ["Javascript", "Framework"]
+        },
+        {
+            "name": "Vue",
+            "level": "Master",
+            "value": 90,
+            "keywords": ["Javascript", "Framework"]
+        },
+        {
+            "name": "HTML",
             "level": "Master",
             "value": 100,
             "keywords": ["HTML", "CSS", "Javascript"]
         },
         {
-            "name": "Angular",
+            "name": "CSS",
             "level": "Master",
             "value": 80,
             "keywords": ["HTML", "CSS", "Javascript"]
         },
         {
-            "name": "NodeJS",
-            "level": "Master",
-            "value": 40,
-            "keywords": ["HTML", "CSS", "Javascript"]
-        },
-        {
-            "name": "Firebase",
-            "level": "Master",
-            "value": 60,
-            "keywords": ["HTML", "CSS", "Javascript"]
-        },
-        {
-            "name": "Gmail",
-            "level": "Master",
-            "value": 20,
-            "keywords": ["HTML", "CSS", "Javascript"]
-        },
-        {
-            "name": "K8S",
+            "name": "MySQL",
             "level": "Master",
             "value": 80,
-            "keywords": ["HTML", "CSS", "Javascript"]
+            "keywords": ["Cloud"]
+        },
+        {
+            "name": "AWS",
+            "level": "Master",
+            "value": 80,
+            "keywords": ["Cloud"]
         }
     ],
     "languages": [
-        { "language": "English", "value": 100, "fluency": "Native speaker" }
+        { "language": "English", "value": 100, "fluency": "Fluent" },
+        { "language": "Filipino", "value": 100, "fluency": "Native speaker" }
     ],
     "interests": [
         {
-            "name": "Burritos",
+            "name": "Photography",
             "gifUrl": "https://media.giphy.com/media/d8WjGORtSEWqc/giphy.gif"
         },
         {
-            "name": "Dogs",
+            "name": "Travel",
             "gifUrl": "https://media.giphy.com/media/3o85xsGXVuYh8lM3EQ/giphy.gif"
         },
         {
-            "name": "Tendresse",
+            "name": "K-Pop",
             "gifUrl": "https://media.giphy.com/media/EehnUUCH2JcwU/giphy.gif"
         },
         {
-            "name": "Something",
+            "name": "Badminton",
             "gifUrl": "https://media.giphy.com/media/xTiTnIuKP1BLsMTerS/giphy.gif"
-        },
-        {
-            "name": "J'aime faire de la course à pied et des randonnées en famille le weekend."
         }
     ],
-    "references": [{ "name": "Jane Doe", "reference": "Reference..." }],
+    "references": [],
     "projects": [
         {
             "name": "Développement d'un serpent connecté",
@@ -175,30 +181,24 @@
         },
         "dreamJob": {
             "locations": [
-                { "name": "Lille, France" },
-                { "name": "Paris,France" },
-                { "name": "Valenciennes, France" },
-                { "name": "Lille, France" },
-                { "name": "Paris,France" },
-                { "name": "Valenciennes, France" }
+                { "name": "Tokyo, Japan" },
+                { "name": "Singapore, Singapore" },
+                { "name": "Sydney, Australia" }
             ],
-            "remoteFrequency": "regularly"
+            "remoteFrequency": "occasionally"
         },
-        "currentJob": {
-            "issues": { "boring_management": true, "boring_team": true }
-        },
-        "education": { "studiesLevel": 5 },
+        "education": { "studiesLevel": 3 },
         "work": {
             "contractTypes": ["permanent"],
-            "codingYears": 7,
-            "codingReason": "J'ai commencé à coder sur Amstrad dans ma cave et je n'ai jamais arrêté depuis",
+            "codingYears": 9,
+            "codingReason": "Solving Problems with coding and learning new cool things gives me a fulfilling feeling.",
             "searchState": "activelySearching",
-            "experienceYears": 9
+            "experienceYears": 5
         },
         "sound": {
             "embedUrl": "https://open.spotify.com/embed/playlist/37i9dQZF1DWWl7MndYYxge"
         },
-        "interestedBy": "Angular, la blochain et les chatons."
+        "interestedBy": "Python, NodeJS, ReactJS"
     },
     "customization": {
         "imageHeader": {
@@ -208,42 +208,42 @@
         "theme": {
             "palette": {
                 "primary": {
-                    "50": "#ffecf0",
-                    "100": "#ffd9e0",
-                    "200": "#ffb4c1",
-                    "300": "#fe8ea3",
-                    "400": "#fe6984",
-                    "500": "#fe4365",
-                    "600": "#cb3651",
-                    "700": "#98283d",
-                    "800": "#661b28",
-                    "900": "#330d14",
+                    "50": "#e9e7ea",
+                    "100": "#d3cfd5",
+                    "200": "#a79faa",
+                    "300": "#7b6f80",
+                    "400": "#4f3f55",
+                    "500": "#230f2b",
+                    "600": "#1c0c22",
+                    "700": "#15091a",
+                    "800": "#0e0611",
+                    "900": "#070309",
                     "contrastDefaultColor": "light"
                 },
                 "secondary": {
-                    "50": "#fff5f5",
-                    "100": "#feebeb",
-                    "200": "#fed8d7",
-                    "300": "#fdc4c2",
-                    "400": "#fdb1ae",
-                    "500": "#fc9d9a",
-                    "600": "#ca7e7b",
-                    "700": "#975e5c",
-                    "800": "#653f3e",
-                    "900": "#321f1f",
+                    "50": "#fee8ec",
+                    "100": "#fcd2d9",
+                    "200": "#faa5b3",
+                    "300": "#f7778d",
+                    "400": "#f54a67",
+                    "500": "#f21d41",
+                    "600": "#c21734",
+                    "700": "#911127",
+                    "800": "#610c1a",
+                    "900": "#30060d",
                     "contrastDefaultColor": "light"
                 },
                 "tertiary": {
-                    "50": "#fefaf7",
-                    "100": "#fef5ef",
-                    "200": "#fdebde",
-                    "300": "#fbe1ce",
-                    "400": "#fad7bd",
-                    "500": "#f9cdad",
-                    "600": "#c7a48a",
-                    "700": "#957b68",
-                    "800": "#645245",
-                    "900": "#322923",
+                    "50": "#fdfdf8",
+                    "100": "#fbfbf2",
+                    "200": "#f7f7e4",
+                    "300": "#f3f3d7",
+                    "400": "#efefc9",
+                    "500": "#ebebbc",
+                    "600": "#bcbc96",
+                    "700": "#8d8d71",
+                    "800": "#5e5e4b",
+                    "900": "#2f2f26",
                     "contrastDefaultColor": "light"
                 }
             }
@@ -257,8 +257,7 @@
             { "type": "studies", "variant": 4 },
             { "type": "gifs", "variant": 0 },
             { "type": "interestedBy", "variant": 3 },
-            { "type": "language", "variant": 4 },
-            { "type": "soundtrack", "variant": 4 }
+            { "type": "language", "variant": 4 }
         ]
     }
 }
