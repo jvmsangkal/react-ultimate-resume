@@ -3,7 +3,7 @@ import React from 'react';
 import { createUseStyles } from 'react-jss';
 import { FormattedMessage } from 'react-intl';
 
-import { Typography } from '@wld/ui';
+import { Typography } from '@welovedevs/ui';
 
 import { styles } from './no_skill_styles';
 import { NoDataButton } from '../../../../../commons/no_data_button/no_data_button';
@@ -23,7 +23,7 @@ const NoSkillComponent = ({ handleAddButtonClick }) => {
             <NoDataButton
                 handleAddButtonClick={handleAddButtonClick}
                 classes={{
-                    container: classes.button
+                    container: classes.button,
                 }}
             >
                 <FormattedMessage id="Skills.noSkill.buttonLabel" defaultMessage="Ajouter une compétence" />

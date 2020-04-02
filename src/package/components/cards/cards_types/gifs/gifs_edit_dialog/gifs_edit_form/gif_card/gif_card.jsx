@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { createUseStyles } from 'react-jss';
 
-import { Button, Card, PopperCardActions, TextField, Typography } from '@wld/ui';
+import { Button, Card, PopperCardActions, TextField, Typography } from '@welovedevs/ui';
 
 import { BouncingRoundButton } from '../../../../../../commons/bouncing_round_button/bouncing_round_button';
 
@@ -18,15 +18,15 @@ const GifCardComponent = ({
     onImageEditClick,
     onChange,
     onRemove,
-    error
+    error,
 }) => {
     const classes = useStyles();
 
     const [input, setInput] = useState(name);
 
-    const handleTextFieldChange = useCallback(event => {
+    const handleTextFieldChange = useCallback((event) => {
         const {
-            target: { value }
+            target: { value },
         } = event;
         setInput(value);
         onChange('name')(value);
@@ -91,7 +91,7 @@ const CardTopHalf = ({ error, gifUrl, classes, name, onImageEditClick }) => {
             <div className={classes.addGifButtonContainer}>
                 <Button
                     customClasses={{
-                        container: classes.addGifButton
+                        container: classes.addGifButton,
                     }}
                     color="primary"
                     variant="outlined"

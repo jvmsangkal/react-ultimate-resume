@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { createUseStyles } from 'react-jss';
 import { useIntl } from 'react-intl';
 
-import { Typography } from '@wld/ui';
+import { Typography } from '@welovedevs/ui';
 
 import { CheckboxField } from '../checkbox_field/checkbox_group';
 
@@ -21,13 +21,13 @@ const CheckboxGroupComponent = ({
     color = 'secondary',
     rows = 2,
     variant,
-    classes: receivedClasses = {}
+    classes: receivedClasses = {},
 }) => {
     const classes = useStyles({ rows });
     const { formatMessage } = useIntl();
 
     const onFieldClicked = useCallback(
-        enumValue => () => {
+        (enumValue) => () => {
             if (typeof onChange !== 'function') {
                 return;
             }
@@ -35,7 +35,7 @@ const CheckboxGroupComponent = ({
                 onChange([...value, enumValue]);
                 return;
             }
-            onChange(value.filter(checkedItem => checkedItem !== enumValue));
+            onChange(value.filter((checkedItem) => checkedItem !== enumValue));
         },
         [value, onChange]
     );
@@ -45,7 +45,7 @@ const CheckboxGroupComponent = ({
             {values.map((enumValue, index) => (
                 <CheckboxField
                     classes={{
-                        container: cn(classes.checkboxField, receivedClasses.checkboxField)
+                        container: cn(classes.checkboxField, receivedClasses.checkboxField),
                     }}
                     title={<Typography>{formatMessage(translations[enumValue])}</Typography>}
                     onClick={onFieldClicked(enumValue)}

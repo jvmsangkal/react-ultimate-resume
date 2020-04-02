@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useIntl } from 'react-intl';
 
-import { ListItem } from '@wld/ui';
+import { ListItem } from '@welovedevs/ui';
 
 import { Select } from '../../../../../commons/select/select';
 
@@ -18,7 +18,7 @@ const JobSearchStateFieldComponent = ({ value, handleChange }) => {
             onChange={handleChange('searchState')}
             textFieldProps={{
                 variant: 'flat',
-                fullWidth: true
+                fullWidth: true,
             }}
         >
             {JOB_SEARCH_STATE.map((elemValue, index) => (

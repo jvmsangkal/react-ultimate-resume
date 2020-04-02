@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { createUseStyles } from 'react-jss';
 import { FormattedMessage } from 'react-intl';
 
-import { Typography } from '@wld/ui';
+import { Typography } from '@welovedevs/ui';
 
 import { CheckboxField } from '../../../../../commons/checkbox_field/checkbox_group';
 
@@ -17,7 +17,7 @@ const VisaFieldComponent = ({ value, toggleValue, classes: receivedClasses = {} 
     return (
         <CheckboxField
             classes={{
-                container: cn(classes.container, receivedClasses.container)
+                container: cn(classes.container, receivedClasses.container),
             }}
             variant="outlined"
             color="primary"

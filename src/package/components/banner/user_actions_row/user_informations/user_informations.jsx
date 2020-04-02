@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 
 import { createUseStyles } from 'react-jss';
 
-import { Typography } from '@wld/ui';
+import { Typography } from '@welovedevs/ui';
 
 import { Avatar } from '../../../commons/avatar/avatar';
 import { Column } from '../../../commons/column/column';
@@ -24,7 +24,7 @@ const UserInformationsComponent = () => {
             <Column customClasses={{ container: classes.textColumn }}>
                 <Typography
                     customClasses={{
-                        container: classes.name
+                        container: classes.name,
                     }}
                     variant="h3"
                     component="h3"
@@ -33,7 +33,7 @@ const UserInformationsComponent = () => {
                 </Typography>
                 <Typography
                     customClasses={{
-                        container: classes.description
+                        container: classes.description,
                     }}
                     component="h4"
                 >

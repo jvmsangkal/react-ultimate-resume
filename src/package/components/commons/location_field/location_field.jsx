@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { createUseStyles } from 'react-jss';
 import { useIntl } from 'react-intl';
 
-import { List, ListItem, PopperCard, TextField, Typography } from '@wld/ui';
+import { List, ListItem, PopperCard, TextField, Typography } from '@welovedevs/ui';
 
 import { useGoogleMapsPredictions } from '../../hooks/location/use_google_maps_predictions';
 
@@ -13,15 +13,7 @@ import { translations } from './location_field_translations';
 
 const useStyles = createUseStyles(styles);
 
-const LocationFieldComponent = ({
-    variant,
-    onLocationSelected,
-    value,
-    clearOnSelect,
-    onChange,
-    fullWidth,
-    classes: receivedClasses = {}
-}) => {
+const LocationFieldComponent = ({ variant, onLocationSelected, value, clearOnSelect, onChange, fullWidth }) => {
     const classes = useStyles();
     const { locale, formatMessage } = useIntl();
     const inputRef = useRef();
@@ -37,7 +29,7 @@ const LocationFieldComponent = ({
     const clear = useCallback(() => setInput(''), []);
 
     const handleChange = useCallback(
-        event => {
+        (event) => {
             setInput(event.target.value);
             if (typeof onChange === 'function') {
                 event.persist();
@@ -59,11 +51,11 @@ const LocationFieldComponent = ({
     );
 
     return (
-        <div className={cn(classes.container, receivedClasses.container)}>
+        <>
             <TextField
                 fullWidth={fullWidth}
                 className={classes.input}
-                onClick={e => e.target && e.target.select && e.target.select()}
+                onClick={(e) => e.target && e.target.select && e.target.select()}
                 value={input}
                 onChange={handleChange}
                 placeholder={formatMessage(translations.placeholder)}
@@ -89,11 +81,11 @@ const LocationFieldComponent = ({
                         setIsFocused,
                         setInput,
                         clear,
-                        clearOnSelect
+                        clearOnSelect,
                     }}
                 />
             )}
-        </div>
+        </>
     );
 };
 
@@ -109,12 +101,12 @@ const PredictionsList = ({ predictions = [], setPreventBlur, input, onPrediction
             open
             anchorElement={input}
             customClasses={{
-                popper: classes.popperCard
+                popper: classes.popperCard,
             }}
         >
             <List>
                 {predictions
-                    .filter(item => item)
+                    .filter((item) => item)
                     .map(({ description, place_id: placeId }) => (
                         <ListItem
                             key={`prediction_${placeId}`}
@@ -135,5 +127,86 @@ const PredictionsList = ({ predictions = [], setPreventBlur, input, onPrediction
         </PopperCard>
     );
 };
+const StubLocationField = ({ variant, onLocationSelected, value, clearOnSelect, onChange, fullWidth }) => {
+    const { formatMessage } = useIntl();
+    const [input, setInput] = useState(value);
 
-export const LocationField = LocationFieldComponent;
+    useEffect(() => {
+        setInput(value);
+    }, [value]);
+
+    const handleChange = useCallback(
+        (e) => {
+            setInput(e.target.value);
+            if (typeof onChange === 'function') {
+                e.persist();
+                onChange(e);
+            }
+        },
+        [onChange]
+    );
+    const onKeyDown = useCallback(
+        (e) => {
+            if (e.keyCode === 13) {
+                onLocationSelected({ name: input });
+                if (clearOnSelect) {
+                    setInput('');
+                }
+            }
+        },
+        [onLocationSelected, input]
+    );
+    return (
+        <TextField
+            variant={variant || 'outlined'}
+            value={input}
+            onChange={handleChange}
+            onKeyDown={onKeyDown}
+            placeholder={formatMessage(translations.stubPlaceholder)}
+            clearOnSelect={clearOnSelect}
+            fullWidth={fullWidth}
+        />
+    );
+};
+
+export const LocationField = ({
+    variant,
+    onLocationSelected,
+    value,
+    clearOnSelect,
+    onChange,
+    fullWidth,
+    classes: receivedClasses = {},
+}) => {
+    const { ready } = useGoogleMapsPredictions();
+    const classes = useStyles();
+
+    if (!ready) {
+        return (
+            <div className={cn(classes.container, receivedClasses.container)}>
+                <StubLocationField
+                    variant={variant}
+                    onLocationSelected={onLocationSelected}
+                    value={value}
+                    clearOnSelect={clearOnSelect}
+                    onChange={onChange}
+                    fullWidth={fullWidth}
+                    classes={classes}
+                />
+            </div>
+        );
+    }
+    return (
+        <div className={cn(classes.container, receivedClasses.container)}>
+            <LocationFieldComponent
+                variant={variant}
+                onLocationSelected={onLocationSelected}
+                value={value}
+                clearOnSelect={clearOnSelect}
+                onChange={onChange}
+                fullWidth={fullWidth}
+                classes={classes}
+            />
+        </div>
+    );
+};

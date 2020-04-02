@@ -3,7 +3,7 @@ import React, { useCallback, useMemo, useState } from 'react';
 import { createUseStyles } from 'react-jss';
 import { useDropzone } from 'react-dropzone';
 
-import { Typography } from '@wld/ui';
+import { Typography } from '@welovedevs/ui';
 
 import { LoadingSpinner } from '../loading_spinner/loading_spinner';
 
@@ -29,13 +29,13 @@ const FileDropZoneComponent = ({ onDrop = DEFAULT_ON_DROP }) => {
         () => ({
             waiting: fileUrl === false,
             loading: fileUrl === null,
-            success: Boolean(fileUrl)
+            success: Boolean(fileUrl),
         }),
         [fileUrl]
     );
 
     const handleDrop = useCallback(
-        async parameters => {
+        async (parameters) => {
             if (typeof onDrop !== 'function') {
                 return;
             }

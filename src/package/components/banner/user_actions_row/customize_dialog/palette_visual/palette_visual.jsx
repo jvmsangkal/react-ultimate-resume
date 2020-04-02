@@ -3,7 +3,7 @@ import React, { useMemo } from 'react';
 import cn from 'classnames';
 import { createUseStyles } from 'react-jss';
 
-import { Tooltip } from '@wld/ui';
+import { Tooltip } from '@welovedevs/ui';
 
 import { PALETTE_KEY_TRANSLATIONS } from './palette_visual_translations';
 
@@ -14,7 +14,7 @@ const useStyles = createUseStyles(styles);
 const PaletteVisualComponent = ({
     palette,
     classes: receivedClasses = {},
-    translations = PALETTE_KEY_TRANSLATIONS
+    translations = PALETTE_KEY_TRANSLATIONS,
 }) => {
     const classes = useStyles();
 
@@ -31,7 +31,7 @@ const PaletteVisualComponent = ({
                     key={`palette_visual_color_${key}_${hex}`}
                     title={translations[key]}
                     customClasses={{
-                        popper: receivedClasses.tooltipPopper
+                        popper: receivedClasses.tooltipPopper,
                     }}
                 >
                     <div className={cn(classes.color, receivedClasses.color)} style={{ color: hex }} />

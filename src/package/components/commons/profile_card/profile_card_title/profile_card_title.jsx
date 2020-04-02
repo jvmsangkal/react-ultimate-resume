@@ -3,7 +3,7 @@ import React from 'react';
 import cn from 'classnames';
 import { createUseStyles } from 'react-jss';
 
-import { Typography } from '@wld/ui';
+import { Typography } from '@welovedevs/ui';
 
 import { useCardVariant } from '../../../hooks/profile_card_hooks/use_card_variant';
 
@@ -17,7 +17,7 @@ const ProfileCardTitleComponent = ({
     beforeTypography,
     overrideColor,
     children,
-    customClasses = {}
+    customClasses = {},
 }) => {
     const [variant] = useCardVariant();
     const classes = useStyles({ variant, overrideColor });
@@ -28,7 +28,7 @@ const ProfileCardTitleComponent = ({
                 variant="h2"
                 component="h3"
                 customClasses={{
-                    container: cn(classes.typography, customClasses.typography)
+                    container: cn(classes.typography, customClasses.typography),
                 }}
             >
                 {children}

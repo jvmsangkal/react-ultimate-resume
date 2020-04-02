@@ -5,7 +5,7 @@ import { createUseStyles } from 'react-jss';
 import { useDebounce } from 'use-debounce';
 
 import { Dialog, DialogActions, DialogContent } from '@material-ui/core';
-import { Button, TextField, Tooltip } from '@wld/ui';
+import { Button, TextField, Tooltip } from '@welovedevs/ui';
 
 import poweredByGiphy from '../../../assets/images/Poweredby_100px-White_VertText.png';
 import { DialogTitle } from '../dialog/dialog_title/dialog_title';
@@ -21,12 +21,12 @@ const SearchGifsDialogComponent = ({ open, onClose, onSelect }) => {
     const [query, setQuery] = useState('');
     const [debouncedQuery] = useDebounce(query, 500);
 
-    const handleInputChange = useCallback(event => setQuery(event.target.value), []);
+    const handleInputChange = useCallback((event) => setQuery(event.target.value), []);
 
     return (
         <Dialog
             classes={{
-                paper: classes.paper
+                paper: classes.paper,
             }}
             open={open}
             onClose={onClose}
@@ -37,7 +37,7 @@ const SearchGifsDialogComponent = ({ open, onClose, onSelect }) => {
             </DialogTitle>
             <DialogContent
                 classes={{
-                    root: classes.content
+                    root: classes.content,
                 }}
             >
                 <TextField
@@ -65,7 +65,7 @@ const Results = ({ query, debouncedQuery, onSelect, classes }) => {
     const loading = useMemo(() => loadingResults || (query && query !== debouncedQuery), [
         query,
         debouncedQuery,
-        loadingResults
+        loadingResults,
     ]);
 
     const handleClick = useCallback(

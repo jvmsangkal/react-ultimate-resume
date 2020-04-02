@@ -3,7 +3,7 @@ import React, { useCallback } from 'react';
 import injectSheet from 'react-jss';
 import { animated, useSpring } from 'react-spring';
 
-import { Button } from '@wld/ui';
+import { Button } from '@welovedevs/ui';
 
 import { ReactComponent as ArrowRight } from '../../../../assets/icons/arrow-right.svg';
 
@@ -34,7 +34,7 @@ const ProfileCardButtonComponent = injectSheet(styles)(({ overrideColor, classes
             <animated.span
                 className={classes.arrowContainer}
                 style={{
-                    transform: springProps.translation.to(value => `translate3d(${value}px, 0, 0)`)
+                    transform: springProps.translation.to((value) => `translate3d(${value}px, 0, 0)`),
                 }}
             >
                 <ArrowRight className={classes.arrow} />
@@ -43,7 +43,7 @@ const ProfileCardButtonComponent = injectSheet(styles)(({ overrideColor, classes
     );
 });
 
-const InjectVariantProfileCardButton = props => {
+const InjectVariantProfileCardButton = (props) => {
     const [variant] = useCardVariant();
     return <ProfileCardButtonComponent {...props} variant={variant} />;
 };

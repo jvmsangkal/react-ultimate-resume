@@ -5,7 +5,7 @@ import { createUseStyles } from 'react-jss';
 import Slider from 'react-slick';
 import { animated, useSpring, useTransition } from 'react-spring';
 
-import { Typography } from '@wld/ui';
+import { Typography } from '@welovedevs/ui';
 
 import { ReactComponent as ArrowIcon } from '../../../../../assets/icons/arrow-right.svg';
 
@@ -29,7 +29,7 @@ const SETTINGS = {
     autoplay: true,
     autoplaySpeed: 4000,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
 };
 
 const GifsBackComponent = ({ data, handleAddButtonClick }) => {
@@ -89,9 +89,9 @@ const GifsBackComponent = ({ data, handleAddButtonClick }) => {
 const Content = ({ data, pauseSlider, hasChanged, currentIndex, resumeSlider, handleAddButtonClick, classes }) => {
     const hasHobby = useMemo(() => existsAndNotEmpty(data?.interests), [data]);
 
-    const transitions = useTransition(data.interests?.[currentIndex] ?? {}, item => `gif_name_${item.name}`, {
+    const transitions = useTransition(data.interests?.[currentIndex] ?? {}, (item) => `gif_name_${item.name}`, {
         ...GIFS_BACK_TRANSITIONS_SPRING_PROPS,
-        immediate: !hasChanged.current
+        immediate: !hasChanged.current,
     });
 
     if (!hasHobby) {
@@ -113,11 +113,11 @@ const Content = ({ data, pauseSlider, hasChanged, currentIndex, resumeSlider, ha
 };
 
 const DEFAULT_ARROW_SPRING_PROPS = Object.freeze({
-    scale: 1
+    scale: 1,
 });
 
 const PRESSED_ARROW_SPRING_PROPS = Object.freeze({
-    scale: 0.9
+    scale: 0.9,
 });
 
 const Arrow = ({ classes, onClick, arrowRole }) => {
@@ -139,7 +139,7 @@ const Arrow = ({ classes, onClick, arrowRole }) => {
             onFocus={handleMouseDown}
             onBlur={handleMouseUp}
             style={{
-                transform: springProps.scale.to(value => `scale3d(${value}, ${value}, ${value})`)
+                transform: springProps.scale.to((value) => `scale3d(${value}, ${value}, ${value})`),
             }}
         >
             <ArrowIcon />
@@ -165,7 +165,7 @@ const TransitioningItem = ({ item, props, pauseSlider, resumeSlider, classes }) 
             >
                 <Typography
                     customClasses={{
-                        container: classes.slideNameWithoutGif
+                        container: classes.slideNameWithoutGif,
                     }}
                     color="light"
                     variant="h3"

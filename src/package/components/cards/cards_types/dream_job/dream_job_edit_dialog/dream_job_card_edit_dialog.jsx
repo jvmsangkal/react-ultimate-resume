@@ -5,7 +5,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import { useFormikContext } from 'formik';
 import uuid from 'uuid/v4';
 
-import { ListItem } from '@wld/ui';
+import { ListItem } from '@welovedevs/ui';
 
 import { EditDialog } from '../../../../commons/edit_dialog/edit_dialog';
 import { EditDialogField } from '../../../../commons/edit_dialog_field/edit_dialog_field';
@@ -30,8 +30,8 @@ import { styles } from './dream_job_card_edit_dialog_styles';
 
 const useStyles = createUseStyles(styles);
 
-const checkboxGroupPerks = Object.values(JobPerks).filter(perk => perk !== JobPerks.OTHER);
-const checkboxGroupCurrentJobIssues = Object.values(JobIssues).filter(key => key !== JobIssues.OTHER);
+const checkboxGroupPerks = Object.values(JobPerks).filter((perk) => perk !== JobPerks.OTHER);
+const checkboxGroupCurrentJobIssues = Object.values(JobIssues).filter((key) => key !== JobIssues.OTHER);
 
 const DEFAULT_OBJECT = {};
 
@@ -49,7 +49,7 @@ const DreamJobCardEditDialogComponent = ({ open, onClose, data, onEdit, validati
             validationSchema={validationSchemaToPass}
             title={<FormattedMessage id="DreamJob.editDialog.title" defaultMessage="Your dream job information" />}
         >
-            {helpers => <Content helpers={helpers} />}
+            {(helpers) => <Content helpers={helpers} />}
         </EditDialog>
     );
 };
@@ -63,34 +63,35 @@ const Content = ({ helpers: { handleValueChange } }) => {
     const perks = values.perks ?? DEFAULT_OBJECT;
     const currentJobIssues = values.currentJobIssues ?? DEFAULT_OBJECT;
 
-    const addPlace = useCallback(place => handleValueChange('places')(places.concat({ ...place, id: uuid() })), [
-        places
+    const addPlace = useCallback((place) => handleValueChange('places')(places.concat({ ...place, id: uuid() })), [
+        places,
     ]);
 
-    const removePlace = useCallback(id => () => handleValueChange('places')(places.filter(place => place.id !== id)), [
-        places
-    ]);
+    const removePlace = useCallback(
+        (id) => () => handleValueChange('places')(places.filter((place) => place.id !== id)),
+        [places]
+    );
 
     const onChangePerks = useCallback(
-        newPerks =>
+        (newPerks) =>
             handleValueChange('perks')({
                 ...newPerks.reduce((acc, perk) => {
                     acc[perk] = true;
                     return acc;
                 }, {}),
-                [JobPerks.OTHER]: perks[JobPerks.OTHER]
+                [JobPerks.OTHER]: perks[JobPerks.OTHER],
             }),
         [perks]
     );
 
     const onChangeCurrentJobIssues = useCallback(
-        newCurrentJobIssues =>
+        (newCurrentJobIssues) =>
             handleValueChange('currentJobIssues')({
                 ...newCurrentJobIssues.reduce((acc, issue) => {
                     acc[issue] = true;
                     return acc;
                 }, {}),
-                [JobIssues.OTHER]: currentJobIssues[JobIssues.OTHER]
+                [JobIssues.OTHER]: currentJobIssues[JobIssues.OTHER],
             }),
         [currentJobIssues]
     );
@@ -115,7 +116,7 @@ const Content = ({ helpers: { handleValueChange } }) => {
         () =>
             handleValueChange('perks')({
                 ...perks,
-                [JobPerks.OTHER]: perks[JobPerks.OTHER] !== null ? null : ''
+                [JobPerks.OTHER]: perks[JobPerks.OTHER] !== null ? null : '',
             }),
         [perks]
     );
@@ -124,7 +125,7 @@ const Content = ({ helpers: { handleValueChange } }) => {
         () =>
             handleValueChange('currentJobIssues')({
                 ...currentJobIssues,
-                [JobIssues.OTHER]: currentJobIssues[JobIssues.OTHER] !== null ? null : ''
+                [JobIssues.OTHER]: currentJobIssues[JobIssues.OTHER] !== null ? null : '',
             }),
         [currentJobIssues]
     );

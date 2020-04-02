@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { FormattedMessage } from 'react-intl';
 import { createUseStyles } from 'react-jss';
 
-import { Typography } from '@wld/ui';
+import { Typography } from '@welovedevs/ui';
 import { ProfileCardActions } from '../../../../commons/profile_card/profile_card_actions/profile_card_actions';
 import { ProfileCardButton } from '../../../../commons/profile_card/profile_card_button/profile_card_button';
 import { GifsSidesCommons } from '../gifs_sides_commons/gifs_sides_commons';
@@ -27,7 +27,7 @@ const GifsFrontComponent = ({ data, handleAddButtonClick }) => {
 
     const handleButtonClick = useCallback(() => setSide(side === SIDES.FRONT ? SIDES.BACK : SIDES.FRONT), [
         side,
-        setSide
+        setSide,
     ]);
 
     const { gifUrl, name } = data.interests?.[0] ?? {};
@@ -37,7 +37,7 @@ const GifsFrontComponent = ({ data, handleAddButtonClick }) => {
     return (
         <GifsSidesCommons
             classes={{
-                container: classes.container
+                container: classes.container,
             }}
             underLayer={gifUrl && <img className={classes.image} src={gifUrl} alt={name} />}
         >
@@ -83,7 +83,7 @@ const Content = ({ hasHobby, name, handleAddButtonClick, classes }) => {
                 <NoDataButton
                     handleAddButtonClick={handleAddButtonClick}
                     classes={{
-                        container: classes.addButton
+                        container: classes.addButton,
                     }}
                     color="secondary"
                 >
@@ -97,7 +97,7 @@ const Content = ({ hasHobby, name, handleAddButtonClick, classes }) => {
         <ProfileCardFrontTypography
             ref={typographyReference}
             classes={{
-                container: cn(classes.withoutGifTypography, isTypographyTruncated && classes.truncatedTypography)
+                container: cn(classes.withoutGifTypography, isTypographyTruncated && classes.truncatedTypography),
             }}
         >
             {name}

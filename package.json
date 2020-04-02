@@ -1,6 +1,6 @@
 {
-    "name": "@wld/developer-profile",
-    "version": "1.3.22",
+    "name": "@welovedevs/react-ultimate-resume",
+    "version": "1.0.2",
     "description": "Developer profile for W3D",
     "main": "lib/index.js",
     "scripts": {
@@ -8,21 +8,28 @@
         "dev": "yarn start",
         "eject": "react-scripts eject",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "package": "rimraf lib && ./node_modules/.bin/babel src/package -d .",
-        "postpackage": "cp-cli src/package/readme.md readme.md && cp-cli src/package/i18n i18n && cp-cli src/package/assets assets",
+        "prepackage": "rimraf lib ",
+        "package": "./node_modules/.bin/babel src/package -d .",
+        "postpackage": "cp-cli src/package/i18n i18n && cp-cli src/package/assets assets",
         "test-build": "rimraf ./test-build && ./node_modules/.bin/babel src -d ./test_build",
         "posttest-build": "rimraf ./test_build ./styles ",
         "build": "react-scripts build",
         "build:messages": "NODE_ENV=production babel ./src >/dev/null",
         "serve": "react-scripts build && serve build",
         "manage:translations": "node ./translationRunner.js",
-        "gh-deploy" : "yarn build && gh-pages -d build"
+        "gh-deploy": "yarn build && gh-pages -d build",
+        "version:beta": "npm version prerelease --preid=beta",
+        "version:release": "npm version ${VERSION:-patch}"
     },
-    "author": "",
-    "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/welovedevs/react-ultimate-resume.git"
+    },
+    "author": "WeLoveDevs.com",
+    "license": "AGPLv3",
     "peerDependencies": {
         "@material-ui/core": "^4.8.3",
-        "@wld/ui": "https://github.com/welovedevs/wld-design-system.git#v1.1.6-8",
+        "@welovedevs/ui": "^1.0.0",
         "formik": "^2.1.2",
         "react": "^16.12.0",
         "react-dom": "^16.12.0"
@@ -32,7 +39,7 @@
         "@formatjs/intl-pluralrules": "^1.5.2",
         "@formatjs/intl-relativetimeformat": "^4.5.9",
         "@material-ui/pickers": "^3.2.9",
-        "@wld/ui": "https://github.com/welovedevs/wld-design-system.git#v1.1.11",
+        "@welovedevs/ui": "^1.0.0",
         "chroma-js": "^2.1.0",
         "classnames": "^2.2.6",
         "copy-to-clipboard": "^3.3.1",

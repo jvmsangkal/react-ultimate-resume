@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import { createUseStyles } from 'react-jss';
 
-import { PopperCard, Slider } from '@wld/ui';
+import { PopperCard, Slider } from '@welovedevs/ui';
 
 import { styles } from './slider_with_popper_styles';
 
@@ -18,7 +18,7 @@ export const SliderWithPopper = ({
     max,
     debounce = 500,
     classes: receivedClasses = {},
-    popperCardProps
+    popperCardProps,
 }) => {
     const classes = useStyles();
 
@@ -36,7 +36,7 @@ export const SliderWithPopper = ({
     }, [value]);
 
     const handleChange = useCallback(
-        e => {
+        (e) => {
             e.persist();
             const newValue = e.target.value;
             if (timer.current) {
@@ -55,7 +55,7 @@ export const SliderWithPopper = ({
     return (
         <Slider
             classes={{
-                container: cn(classes.container, receivedClasses.container)
+                container: cn(classes.container, receivedClasses.container),
             }}
             color={color}
             name={name}
@@ -74,12 +74,12 @@ export const SliderWithPopper = ({
                         disablePortal: true,
                         modifiers: {
                             preventOverflow: {
-                                boundariesElement: 'viewport'
+                                boundariesElement: 'viewport',
                             },
                             hide: {
-                                enabled: false
-                            }
-                        }
+                                enabled: false,
+                            },
+                        },
                     }}
                     {...popperCardProps}
                 >

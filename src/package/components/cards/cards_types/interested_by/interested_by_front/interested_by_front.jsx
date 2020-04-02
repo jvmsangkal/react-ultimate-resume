@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { createUseStyles } from 'react-jss';
 import { FormattedMessage } from 'react-intl';
 
-import { Typography } from '@wld/ui';
+import { Typography } from '@welovedevs/ui';
 import { ProfileCardPaddedFront } from '../../../../commons/profile_card/profile_card_padded_front/profile_card_padding_front';
 import { CenterContentContainer } from '../../../../commons/center_content_container/center_content_container';
 import { ProfileCardFrontTypography } from '../../../../commons/profile_card/profile_card_front_typography/profile_card_front_typography';
@@ -23,7 +23,7 @@ const InterestedByFrontComponent = ({
     dismissButton,
     handleAddButtonClick,
     overrideColor,
-    customClasses = {}
+    customClasses = {},
 }) => {
     const classes = useStyles({ overrideColor });
     const [side, setSide] = useCardSide();
@@ -32,7 +32,7 @@ const InterestedByFrontComponent = ({
 
     const handleButtonClick = useCallback(() => setSide(side === SIDES.FRONT ? SIDES.BACK : SIDES.FRONT), [
         side,
-        setSide
+        setSide,
     ]);
 
     return (
@@ -46,7 +46,7 @@ const InterestedByFrontComponent = ({
                             handleAddButtonClick,
                             overrideColor,
                             classes,
-                            customClasses
+                            customClasses,
                         }}
                     />
                 </CenterContentContainer>
@@ -68,7 +68,7 @@ const Content = ({
     handleAddButtonClick,
     overrideColor,
     classes,
-    customClasses
+    customClasses,
 }) => {
     const typographyReference = useRef();
 
@@ -91,7 +91,7 @@ const Content = ({
                 <NoDataButton
                     handleAddButtonClick={handleAddButtonClick}
                     classes={{
-                        container: classes.addButton
+                        container: classes.addButton,
                     }}
                 >
                     <FormattedMessage id="InterestedBy.noInterested.buttonLabel" defaultMessage="Ajouter" />
@@ -103,7 +103,7 @@ const Content = ({
         <ProfileCardFrontTypography
             ref={typographyReference}
             classes={{
-                container: cn(classes.typography, customClasses.typography)
+                container: cn(classes.typography, customClasses.typography),
             }}
             overrideColor={overrideColor}
         >

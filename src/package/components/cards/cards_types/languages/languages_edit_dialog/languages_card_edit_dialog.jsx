@@ -6,7 +6,7 @@ import { arrayMove, SortableContainer, SortableElement, SortableHandle } from 'r
 
 import uuid from 'uuid/v4';
 
-import { List, TextField, Tooltip, Typography } from '@wld/ui';
+import { List, TextField, Tooltip, Typography } from '@welovedevs/ui';
 import useMediaQuery from '@material-ui/core/useMediaQuery/useMediaQuery';
 
 import { useFormikContext } from 'formik';
@@ -37,7 +37,7 @@ const LanguagesCardEditDialogComponent = ({ open, onClose, data, onEdit, validat
             validationSchema={validationSchemaToPass}
             title={<FormattedMessage id="Languages.editDialog.title" defaultMessage="Your languages" />}
         >
-            {helpers => <LanguagesEditFormWrapper helpers={helpers} />}
+            {(helpers) => <LanguagesEditFormWrapper helpers={helpers} />}
         </EditDialog>
     );
 };
@@ -48,8 +48,8 @@ const LanguageItem = SortableElement(
         const theme = useTheme();
         const isMobile = useMediaQuery(`(max-width: ${theme.screenSizes.small}px)`);
 
-        const handleLanguageChange = useCallback(e => onChange(index, 'language', e.target.value), [index]);
-        const handleValueChange = useCallback(e => onChange(index, 'value', Number(e.target.value)), [index]);
+        const handleLanguageChange = useCallback((e) => onChange(index, 'language', e.target.value), [index]);
+        const handleValueChange = useCallback((e) => onChange(index, 'value', Number(e.target.value)), [index]);
 
         return (
             <div className={classes.itemContainer}>
@@ -85,13 +85,13 @@ const LanguageItem = SortableElement(
                         <div className={cn(classes.field, classes.sliderValueContainer)}>
                             <Typography
                                 customClasses={{
-                                    container: classes.sliderValue
+                                    container: classes.sliderValue,
                                 }}
                                 color="dark"
                                 variant="label"
                             >
                                 {formatMessage(translations.level, {
-                                    valueNode: <span className={classes.bolden}>{language.value}</span>
+                                    valueNode: <span className={classes.bolden}>{language.value}</span>,
                                 })}
                             </Typography>
                             <SliderWithPopper
@@ -105,8 +105,8 @@ const LanguageItem = SortableElement(
                                 popperCardProps={{
                                     customClasses: {
                                         container: classes.sliderPopperCard,
-                                        arrowContainer: classes.sliderPopperCardArrowContainer
-                                    }
+                                        arrowContainer: classes.sliderPopperCardArrowContainer,
+                                    },
                                 }}
                             />
                             {fieldErrors && fieldErrors.value && (
@@ -136,7 +136,7 @@ const SortableLanguagesItems = SortableContainer(({ items, onChange, onDelete, e
                     index,
                     language,
                     schools,
-                    classes
+                    classes,
                 }}
             />
         ))}
@@ -182,14 +182,14 @@ export const LanguagesEditForm = ({ data, onMove, onValueChange, onDelete, onAdd
 const LanguagesEditFormWrapper = ({ helpers: { handleValueChange } }) => {
     const {
         values: { languages },
-        errors: validationErrors
+        errors: validationErrors,
     } = useFormikContext();
 
     const languageChanged = useCallback((experienceIndex, field, value) => {
         handleValueChange(`languages[${experienceIndex}].${field}`)(value);
     }, []);
     const languageDeleted = useCallback(
-        deletingId => () => {
+        (deletingId) => () => {
             handleValueChange('languages')(languages.filter(({ id }) => deletingId !== id));
         },
         [languages]
@@ -201,8 +201,8 @@ const LanguagesEditFormWrapper = ({ helpers: { handleValueChange } }) => {
             ...(languages ?? []),
             {
                 index: languages?.length ?? 0,
-                id
-            }
+                id,
+            },
         ]);
     }, [JSON.stringify(languages)]);
 

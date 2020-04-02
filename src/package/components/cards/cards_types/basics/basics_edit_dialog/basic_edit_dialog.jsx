@@ -4,7 +4,7 @@ import { createUseStyles } from 'react-jss';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { useFormikContext } from 'formik';
 
-import { TextField, Typography } from '@wld/ui';
+import { TextField, Typography } from '@welovedevs/ui';
 
 import { EditDialog } from '../../../../commons/edit_dialog/edit_dialog';
 import { EditDialogField } from '../../../../commons/edit_dialog_field/edit_dialog_field';
@@ -31,7 +31,7 @@ const BasicsCardEditDialogComponent = ({ open, onClose, data, onEdit, validation
             validationSchema={validationSchemaToPass}
             title={<FormattedMessage id="Basics.editDialog.title" defaultMessage="Your basic informations" />}
         >
-            {helpers => <Content helpers={helpers} />}
+            {(helpers) => <Content helpers={helpers} />}
         </EditDialog>
     );
 };
@@ -48,7 +48,7 @@ const Content = ({ helpers: { handleValueChange, toggleValue } }) => {
         visaSponsorship,
         searchState,
         personalDescription,
-        summary
+        summary,
     } = values;
     return (
         <>
@@ -79,7 +79,7 @@ const Content = ({ helpers: { handleValueChange, toggleValue } }) => {
             </EditDialogField>
             <EditDialogField
                 classes={{
-                    container: classes.field
+                    container: classes.field,
                 }}
                 error={errors?.summary}
                 title={
@@ -141,7 +141,7 @@ const Content = ({ helpers: { handleValueChange, toggleValue } }) => {
                             defaultMessage="{countNode} year{count, plural, one {} other {s}}"
                             values={{
                                 count: codingYears,
-                                countNode: <span className={classes.bolden}>{codingYears}</span>
+                                countNode: <span className={classes.bolden}>{codingYears}</span>,
                             }}
                         />
                     </Typography>
@@ -155,8 +155,8 @@ const Content = ({ helpers: { handleValueChange, toggleValue } }) => {
                         popperCardProps={{
                             customClasses: {
                                 container: classes.sliderPopperCard,
-                                arrowContainer: classes.sliderPopperCardArrowContainer
-                            }
+                                arrowContainer: classes.sliderPopperCardArrowContainer,
+                            },
                         }}
                     />
                 </div>
@@ -183,7 +183,7 @@ const Content = ({ helpers: { handleValueChange, toggleValue } }) => {
                             defaultMessage="{countNode} year{count, plural, one {} other {s}}"
                             values={{
                                 count: studiesLevel,
-                                countNode: <span className={classes.bolden}>{studiesLevel}</span>
+                                countNode: <span className={classes.bolden}>{studiesLevel}</span>,
                             }}
                         />
                     </Typography>
@@ -197,8 +197,8 @@ const Content = ({ helpers: { handleValueChange, toggleValue } }) => {
                         popperCardProps={{
                             customClasses: {
                                 container: classes.sliderPopperCard,
-                                arrowContainer: classes.sliderPopperCardArrowContainer
-                            }
+                                arrowContainer: classes.sliderPopperCardArrowContainer,
+                            },
                         }}
                     />
                 </div>
@@ -225,7 +225,7 @@ const Content = ({ helpers: { handleValueChange, toggleValue } }) => {
                             defaultMessage="{countNode} year{count, plural, one {} other {s}}"
                             values={{
                                 count: experienceYears,
-                                countNode: <span className={classes.bolden}>{experienceYears}</span>
+                                countNode: <span className={classes.bolden}>{experienceYears}</span>,
                             }}
                         />
                     </Typography>
@@ -239,8 +239,8 @@ const Content = ({ helpers: { handleValueChange, toggleValue } }) => {
                         popperCardProps={{
                             customClasses: {
                                 container: classes.sliderPopperCard,
-                                arrowContainer: classes.sliderPopperCardArrowContainer
-                            }
+                                arrowContainer: classes.sliderPopperCardArrowContainer,
+                            },
                         }}
                     />
                 </div>

@@ -5,7 +5,7 @@ import { FormattedMessage } from 'react-intl';
 import set from 'lodash/set';
 import cloneDeep from 'lodash/cloneDeep';
 
-import { Button } from '@wld/ui';
+import { Button } from '@welovedevs/ui';
 
 import { Dialog, DialogActions, DialogContent, useMediaQuery } from '@material-ui/core';
 
@@ -24,7 +24,7 @@ const useStyles = createUseStyles(styles);
 const CustomizeDialogComponent = ({ open, onClose, customizationOptions }) => {
     const theme = useTheme();
     const onlyShowPalettesList = useMediaQuery(createScreenWidthMediaQuery('max-width', theme.screenSizes.small), {
-        defaultMatches: true
+        defaultMatches: true,
     });
     const classes = useStyles({ onlyShowPalettesList });
     const [value, setValue] = useState(customizationOptions);
@@ -51,7 +51,7 @@ const CustomizeDialogComponent = ({ open, onClose, customizationOptions }) => {
     }, [value]);
 
     const onPaletteChanged = useCallback(
-        palette => {
+        (palette) => {
             const newCustomization = cloneDeep(value || {});
             set(newCustomization, 'theme.palette', palette);
             setValue(newCustomization);
@@ -64,7 +64,7 @@ const CustomizeDialogComponent = ({ open, onClose, customizationOptions }) => {
     );
 
     const onCardOrdered = useCallback(
-        cardsOrder => {
+        (cardsOrder) => {
             const newCustomization = cloneDeep(value || {});
             newCustomization.cardsOrder = cardsOrder;
             setValue(newCustomization);
@@ -78,7 +78,7 @@ const CustomizeDialogComponent = ({ open, onClose, customizationOptions }) => {
             open={open}
             classes={{
                 root: classes.root,
-                paper: classes.paper
+                paper: classes.paper,
             }}
             onClose={onClose}
         >
@@ -87,12 +87,12 @@ const CustomizeDialogComponent = ({ open, onClose, customizationOptions }) => {
             </DialogTitle>
             <DialogContent
                 classes={{
-                    root: classes.content
+                    root: classes.content,
                 }}
             >
                 <PalettesList
                     classes={{
-                        container: classes.palettesList
+                        container: classes.palettesList,
                     }}
                     onChange={onPaletteChanged}
                     value={value?.theme?.palette}
@@ -110,7 +110,7 @@ const CustomizeDialogComponent = ({ open, onClose, customizationOptions }) => {
             </DialogContent>
             <DialogActions
                 classes={{
-                    root: classes.actions
+                    root: classes.actions,
                 }}
             >
                 <Button size="small" onClick={onClose}>

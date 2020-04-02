@@ -3,7 +3,7 @@ import React, { useCallback, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { createUseStyles } from 'react-jss';
 
-import { Button, TextField } from '@wld/ui';
+import { Button, TextField } from '@welovedevs/ui';
 
 import { Dialog, DialogActions, DialogContent } from '@material-ui/core';
 
@@ -17,7 +17,7 @@ const UrlInputDialogComponent = ({ open, onClose, onConfirm }) => {
     const classes = useStyles();
     const [url, setUrl] = useState('');
 
-    const handleTextFieldChange = useCallback(event => setUrl(event.target.value), []);
+    const handleTextFieldChange = useCallback((event) => setUrl(event.target.value), []);
     const onClick = useCallback(() => onConfirm(url), [url]);
 
     return (
@@ -25,7 +25,7 @@ const UrlInputDialogComponent = ({ open, onClose, onConfirm }) => {
             open={open}
             onClose={onClose}
             classes={{
-                paper: classes.paper
+                paper: classes.paper,
             }}
         >
             <DialogTitle>

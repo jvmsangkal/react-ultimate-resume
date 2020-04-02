@@ -3,7 +3,7 @@ import React, { memo, useEffect, useState } from 'react';
 import { createUseStyles } from 'react-jss';
 import { FormattedMessage } from 'react-intl';
 
-import { PopperCard, Typography } from '@wld/ui';
+import { PopperCard, Typography } from '@welovedevs/ui';
 
 import { ReactComponent as WarnIcon } from '../../../../assets/icons/warn.svg';
 
@@ -26,7 +26,7 @@ const ProfileCardIncompletePopperComponent = ({ open, onClose, anchorElement }) 
         <PopperCard
             customClasses={{
                 container: classes.container,
-                arrowContainer: classes.arrowContainer
+                arrowContainer: classes.arrowContainer,
             }}
             open={open}
             onClose={onClose}
@@ -36,15 +36,15 @@ const ProfileCardIncompletePopperComponent = ({ open, onClose, anchorElement }) 
                 disablePortal: true,
                 modifiers: {
                     preventOverflow: {
-                        enabled: false
+                        enabled: false,
                     },
                     hide: {
-                        enabled: false
+                        enabled: false,
                     },
                     flip: {
-                        behavior: ['top-start']
-                    }
-                }
+                        behavior: ['top-start'],
+                    },
+                },
             }}
         >
             <WarnIcon className={classes.icon} />

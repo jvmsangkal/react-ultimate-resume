@@ -12,7 +12,7 @@ import keyBy from 'lodash/keyBy';
 import uuid from 'uuid/v4';
 
 import useMediaQuery from '@material-ui/core/useMediaQuery/useMediaQuery';
-import { Checkbox, List, ListItem, TextField, Tooltip, Typography } from '@wld/ui';
+import { Checkbox, List, ListItem, TextField, Tooltip, Typography } from '@welovedevs/ui';
 
 import { EditDialog } from '../../../../commons/edit_dialog/edit_dialog';
 import { YearMonth } from '../../../../commons/year_month/year_month';
@@ -55,7 +55,7 @@ const ExperiencesEditDialogComponent = ({ open, onClose, data, onEdit, validatio
                 />
             }
         >
-            {helpers => <ExperiencesEditFormWrapper helpers={helpers} />}
+            {(helpers) => <ExperiencesEditFormWrapper helpers={helpers} />}
         </EditDialog>
     );
 };
@@ -63,7 +63,7 @@ const ExperiencesEditDialogComponent = ({ open, onClose, data, onEdit, validatio
 const ExperiencesEditFormWrapper = ({ helpers: { handleValueChange } }) => {
     const {
         values: { work },
-        errors: validationErrors
+        errors: validationErrors,
     } = useFormikContext();
 
     const errors = validationErrors;
@@ -72,7 +72,7 @@ const ExperiencesEditFormWrapper = ({ helpers: { handleValueChange } }) => {
         handleValueChange(`work[${experienceIndex}].${field}`)(value);
     }, []);
     const experienceDeleted = useCallback(
-        idToDelete => () => {
+        (idToDelete) => () => {
             handleValueChange('work')(work.filter(({ id }) => id !== idToDelete));
         },
         [JSON.stringify(work)]
@@ -83,7 +83,7 @@ const ExperiencesEditFormWrapper = ({ helpers: { handleValueChange } }) => {
         handleValueChange('work')(
             work.concat({
                 index: work.length,
-                id
+                id,
             })
         );
     }, [JSON.stringify(work)]);
@@ -114,7 +114,7 @@ const JobTitle = ({ experience }) => {
             jobTitle: experience.position,
             companyName: experience.name,
             start: experience.startDate?.format('MMMM YYYY'),
-            end: experience.endDate?.format('MMMM YYYY')
+            end: experience.endDate?.format('MMMM YYYY'),
         };
         if (payload.companyName) {
             if (!payload.end) {
@@ -141,22 +141,22 @@ const ExperienceItem = SortableElement(
         folded,
         toggleFold,
         classes,
-        experienceIndex: index
+        experienceIndex: index,
     }) => {
         const { formatMessage } = useIntl();
         const theme = useTheme();
         const isMobile = useMediaQuery(`(max-width: ${theme.screenSizes.small}px)`);
 
         const { rotate } = useSpring({
-            rotate: folded ? -90 : 0
+            rotate: folded ? -90 : 0,
         });
 
         const contentTransitions = useTransition(
             !folded ? experience : null,
-            item => `${item ? 'visible' : 'invisible'}_experience_${item?.id}_content`,
+            (item) => `${item ? 'visible' : 'invisible'}_experience_${item?.id}_content`,
             {
                 ...EXPERIENCE_CONTENT_TRANSITION_SPRING_PROPS,
-                unique: true
+                unique: true,
             }
         );
 
@@ -180,7 +180,7 @@ const ExperienceItem = SortableElement(
                         <animated.div
                             className={classes.arrowContainer}
                             style={{
-                                transform: rotate.to(value => `rotate(${value}deg)`)
+                                transform: rotate.to((value) => `rotate(${value}deg)`),
                             }}
                         >
                             <ArrowIcon className={cn('refinement-arrow')} />
@@ -228,14 +228,14 @@ const ContentFields = ({ fieldErrors, id, formatMessage, experience, onChange, c
         <StillEmployedField value={stillEmployed} {...{ handleStillEmployedChange, formatMessage, classes }} />
     );
 
-    const handleNameChange = useCallback(e => onChange(index, 'name', e.target.value), [index]);
-    const handlePositionChange = useCallback(e => onChange(index, 'position', e.target.value), [index]);
-    const handleSummaryChange = useCallback(e => onChange(index, 'summary', e.target.value), [index]);
-    const handleStartDate = useCallback(value => onChange(index, 'startDate', value), [index]);
-    const handleEndDate = useCallback(value => onChange(index, 'endDate', value), [index]);
-    const handleLocationChange = useCallback(value => onChange(index, 'place', value), [index]);
-    const handleLocationTextChange = useCallback(value => onChange(index, 'place', { name: value.target.value }), [
-        index
+    const handleNameChange = useCallback((e) => onChange(index, 'name', e.target.value), [index]);
+    const handlePositionChange = useCallback((e) => onChange(index, 'position', e.target.value), [index]);
+    const handleSummaryChange = useCallback((e) => onChange(index, 'summary', e.target.value), [index]);
+    const handleStartDate = useCallback((value) => onChange(index, 'startDate', value), [index]);
+    const handleEndDate = useCallback((value) => onChange(index, 'endDate', value), [index]);
+    const handleLocationChange = useCallback((value) => onChange(index, 'place', value), [index]);
+    const handleLocationTextChange = useCallback((value) => onChange(index, 'place', { name: value.target.value }), [
+        index,
     ]);
 
     return (
@@ -365,7 +365,7 @@ const SortableExperiences = SortableContainer(
         errors,
         foldedState,
         toggleFold,
-        classes
+        classes,
     }) => (
         <List component="nav">
             {items
@@ -424,7 +424,7 @@ const ExperiencesEditForm = ({ data, errors, onAdd, onMove, onFieldChange, onDel
     );
 
     const toggleFold = useCallback(
-        id => value => {
+        (id) => (value) => {
             const newFoldState = { ...foldedState };
             newFoldState[id] = value;
             setFoldState(newFoldState);
@@ -450,7 +450,7 @@ const ExperiencesEditForm = ({ data, errors, onAdd, onMove, onFieldChange, onDel
                     errors,
                     foldedState,
                     toggleFold,
-                    classes
+                    classes,
                 }}
             />
             <AddButton onClick={onAdd} />

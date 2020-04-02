@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import { createUseStyles, useTheme } from 'react-jss';
 import { animated } from 'react-spring';
 
-import { Typography } from '@wld/ui/typography/typography';
+import { Typography } from '@welovedevs/ui/typography/typography';
 
 import OtherSkillProgress from '../other_skill_progress/other_skill_progress';
 import { getColorsFromCardVariant } from '../../../../../../utils/styles/styles_utils';
@@ -27,13 +27,13 @@ const OtherSkills = ({ style, othersSkills, springTranslationProps: { yt } }) =>
             className={classes.otherSkillsContainer}
             style={{
                 opacity: style.opacity,
-                transform: yt.to(value => `translate3d(0, ${value}px,0)`)
+                transform: yt.to((value) => `translate3d(0, ${value}px,0)`),
             }}
         >
             <Typography variant="h3" component="h3" customClasses={{ container: classes.otherSkillsTitle }}>
                 <FormattedMessage id="Skills.otherskills.title" defaultMessage="I also master" />
             </Typography>
-            {othersSkills.map(skill => (
+            {othersSkills.map((skill) => (
                 <OtherSkillProgress
                     key={`other_skill_${skill.name}`}
                     color={color}

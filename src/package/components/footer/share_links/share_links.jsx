@@ -5,7 +5,7 @@ import { createUseStyles } from 'react-jss';
 import { useIntl } from 'react-intl';
 import { animated, config, useSpring } from 'react-spring';
 
-import { Tooltip } from '@wld/ui';
+import { Tooltip } from '@welovedevs/ui';
 import { SHARE_LINKS_DATA } from './share_links_data';
 import { BACKGROUND_LINE_SPRING_PROPS } from './share_links_spring_props';
 
@@ -21,7 +21,7 @@ const ShareLinksComponent = ({ useSmallLayout }) => {
 
     const [backgroundLineSpringProps, setBackgroundLineSpringProps] = useSpring(() => ({
         ...BACKGROUND_LINE_SPRING_PROPS.default,
-        config: config.slow
+        config: config.slow,
     }));
 
     useEffect(() => {
@@ -36,7 +36,7 @@ const ShareLinksComponent = ({ useSmallLayout }) => {
         }
         // eslint-disable-next-line no-undef
         const observer = new IntersectionObserver(
-            entries => {
+            (entries) => {
                 if (entries[0].isIntersecting === true) {
                     setBackgroundLineSpringProps(BACKGROUND_LINE_SPRING_PROPS.active);
                 } else {
@@ -61,7 +61,7 @@ const ShareLinksComponent = ({ useSmallLayout }) => {
                                 className={classes.link}
                                 href={getLink({
                                     link,
-                                    translatedMessage
+                                    translatedMessage,
                                 })}
                                 target="_blank"
                                 rel="noreferrer noopener"

@@ -4,7 +4,7 @@ import { createUseStyles } from 'react-jss';
 import { FormattedMessage } from 'react-intl';
 import { useTransition } from 'react-spring';
 
-import { Tag, Tooltip, Typography } from '@wld/ui';
+import { Tag, Tooltip, Typography } from '@welovedevs/ui';
 
 import { LocationField } from '../../../../../commons/location_field/location_field';
 import { EditDialogField } from '../../../../../commons/edit_dialog_field/edit_dialog_field';
@@ -23,8 +23,8 @@ const LocationPlacesFieldComponent = ({ error, places, addPlace, removePlace }) 
     const transitions = useTransition(placesValues, ({ id }) => `place_${id}`, {
         ...LOCATION_PLACES_FIELD_TRANSITIONS_SPRING_PROPS,
         ...(placesValues?.length && {
-            trail: 500 / placesValues.length
-        })
+            trail: 500 / placesValues.length,
+        }),
     });
     return (
         <EditDialogField
@@ -39,8 +39,9 @@ const LocationPlacesFieldComponent = ({ error, places, addPlace, removePlace }) 
             <LocationField
                 fullWidth
                 classes={{
-                    container: classes.locationField
+                    container: classes.locationField,
                 }}
+                clearOnSelect
                 variant="flat"
                 onLocationSelected={addPlace}
             />
@@ -54,7 +55,7 @@ const LocationPlacesFieldComponent = ({ error, places, addPlace, removePlace }) 
                                 color="secondary"
                                 style={{
                                     opacity: props.opacity,
-                                    transform: props.scale.to(value => `scale3d(${value}, ${value}, ${value})`)
+                                    transform: props.scale.to((value) => `scale3d(${value}, ${value}, ${value})`),
                                 }}
                             >
                                 <Tooltip title="Delete this place">

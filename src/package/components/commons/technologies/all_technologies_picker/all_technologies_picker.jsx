@@ -7,13 +7,13 @@ import { FormattedMessage } from 'react-intl';
 import { animated, useChain, useTransition } from 'react-spring';
 
 import useMediaQuery from '@material-ui/core/useMediaQuery/useMediaQuery';
-import { Card, TextField, Typography } from '@wld/ui';
+import { Card, TextField, Typography } from '@welovedevs/ui';
 
 import { useTechnologies } from '../../../hooks/technologies/use_technologies';
 
 import {
     ALL_TECHNOLOGIES_TRANSITIONS_SPRING_PROPS,
-    SELECTED_ITEM_LAYER_TRANSITIONS_SPRING_PROPS
+    SELECTED_ITEM_LAYER_TRANSITIONS_SPRING_PROPS,
 } from './all_technologies_picker_spring_props';
 
 import { CheckboxField } from '../../checkbox_field/checkbox_group';
@@ -42,7 +42,7 @@ const TechnologyItem = ({ item, classes, selectedItems = [], onAdd, onDelete }) 
 
     const selectedItemLayerTransitions = useTransition(
         selectedItem,
-        selected => `selected_item_layer_${selected?.name}`,
+        (selected) => `selected_item_layer_${selected?.name}`,
         SELECTED_ITEM_LAYER_TRANSITIONS_SPRING_PROPS
     );
 
@@ -50,7 +50,7 @@ const TechnologyItem = ({ item, classes, selectedItems = [], onAdd, onDelete }) 
         <button className={classes.technologyItem} type="button" onClick={onClick}>
             <Card
                 customClasses={{
-                    container: classes.technologyImageContainer
+                    container: classes.technologyImageContainer,
                 }}
             >
                 <img src={imgUrl} alt={item.name} className={classes.technologyImage} />
@@ -67,7 +67,7 @@ const TechnologyItem = ({ item, classes, selectedItems = [], onAdd, onDelete }) 
             </Card>
             <Typography
                 customClasses={{
-                    container: classes.typography
+                    container: classes.typography,
                 }}
             >
                 {item.name}
@@ -98,24 +98,25 @@ const AllTechnologiesPickerComponent = ({ selectedItems, onAdd, onDelete, classe
                     return selectedItems.some(({ name: selectedName }) => selectedName === name);
                 })
                 .filter(({ name, tags }) =>
-                    [...(tags ?? []), name].some(value => value.toLowerCase().includes(debouncedQuery.toLowerCase())))
+                    [...(tags ?? []), name].some((value) => value.toLowerCase().includes(debouncedQuery.toLowerCase()))
+                )
                 .slice(0, 35),
         [technologies, debouncedQuery, onlySelected]
     );
 
-    const handleTextFieldChange = useCallback(event => setQuery(event.target.value), []);
+    const handleTextFieldChange = useCallback((event) => setQuery(event.target.value), []);
 
     const displayedItemsTransitions = useTransition(
         !animationEnded.current ? displayedItems : null,
-        item => `technology_${item?.name}`,
+        (item) => `technology_${item?.name}`,
         {
             ...ALL_TECHNOLOGIES_TRANSITIONS_SPRING_PROPS,
             trail: 1250 / displayedItems.length,
             onRest: async () => {
-                await new Promise(resolve => setTimeout(resolve, 200));
+                await new Promise((resolve) => setTimeout(resolve, 200));
                 animationEnded.current = true;
             },
-            ref: animationReference
+            ref: animationReference,
         }
     );
 
@@ -129,7 +130,7 @@ const AllTechnologiesPickerComponent = ({ selectedItems, onAdd, onDelete, classe
         <div className={cn(classes.container, receivedClasses.container)}>
             <TextField
                 customClasses={{
-                    container: classes.textField
+                    container: classes.textField,
                 }}
                 fullWidth={isMobile}
                 variant="outlined"

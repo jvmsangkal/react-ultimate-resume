@@ -3,7 +3,7 @@ import React, { memo, useCallback, useMemo } from 'react';
 import { createUseStyles } from 'react-jss';
 
 import { FormattedMessage } from 'react-intl';
-import { Typography } from '@wld/ui';
+import { Typography } from '@welovedevs/ui';
 import { CenterContentContainer } from '../../../../commons/center_content_container/center_content_container';
 import { ProfileCardFrontTypography } from '../../../../commons/profile_card/profile_card_front_typography/profile_card_front_typography';
 import { ProfileCardActions } from '../../../../commons/profile_card/profile_card_actions/profile_card_actions';
@@ -23,7 +23,7 @@ const LanguagesFrontComponent = ({ data, handleAddButtonClick }) => {
 
     const handleButtonClick = useCallback(() => setSide(side === SIDES.FRONT ? SIDES.BACK : SIDES.FRONT), [
         side,
-        setSide
+        setSide,
     ]);
 
     const languagesNode = (
@@ -77,7 +77,7 @@ const Content = ({ hasLanguage, languagesNode, handleAddButtonClick, classes }) 
             <NoDataButton
                 handleAddButtonClick={handleAddButtonClick}
                 classes={{
-                    container: classes.addButton
+                    container: classes.addButton,
                 }}
             >
                 <FormattedMessage id="Languages.noLanguage.buttonLabel" defaultMessage="Ajouter une langue" />

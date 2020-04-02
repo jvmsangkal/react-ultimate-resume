@@ -5,7 +5,7 @@ import { createUseStyles } from 'react-jss';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 
 import MomentUtils from '@date-io/moment';
-import { Typography } from '@wld/ui';
+import { Typography } from '@welovedevs/ui';
 import { useFormikContext } from 'formik';
 import { styles } from './project_dialog_content_date_styles';
 
@@ -38,7 +38,7 @@ const DefaultContent = ({ date, classes }) => (
 const EditingContent = ({ classes }) => {
     const { setFieldValue, values, errors } = useFormikContext();
     const handleStartDate = useCallback(
-        value => {
+        (value) => {
             setFieldValue('date', value);
         },
         [JSON.stringify(values)]
@@ -48,7 +48,7 @@ const EditingContent = ({ classes }) => {
             <MuiPickersUtilsProvider utils={MomentUtils}>
                 <YearMonth
                     textfieldProps={{
-                        fullWidth: true
+                        fullWidth: true,
                     }}
                     className={classes.datePicker}
                     variant="flat"

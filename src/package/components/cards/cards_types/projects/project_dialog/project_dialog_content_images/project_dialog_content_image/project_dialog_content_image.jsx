@@ -4,7 +4,7 @@ import { createUseStyles } from 'react-jss';
 import { animated, useTransition } from 'react-spring';
 
 import { useFormikContext } from 'formik';
-import { Tooltip } from '@wld/ui';
+import { Tooltip } from '@welovedevs/ui';
 
 import { useIsEditing } from '../../../../../../hooks/use_is_editing';
 import { useOpenerState } from '../../../../../../hooks/use_opener_state';
@@ -24,7 +24,7 @@ const ProjectDialogContentImageComponent = ({ component: Component = 'div', url,
 
     const editLayerTransitions = useTransition(
         showEditLayer,
-        item => `${item ? 'visible' : 'invisible'}_edit_layer`,
+        (item) => `${item ? 'visible' : 'invisible'}_edit_layer`,
         PROJECT_DIALOG_CONTENT_IMAGE_EDIT_LAYER_SPRING_PROPS
     );
 

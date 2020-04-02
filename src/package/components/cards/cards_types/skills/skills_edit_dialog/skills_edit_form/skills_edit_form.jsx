@@ -3,7 +3,7 @@ import React, { useCallback } from 'react';
 import { createUseStyles, useTheme } from 'react-jss';
 import { useFormikContext } from 'formik';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { Typography } from '@wld/ui';
+import { Typography } from '@welovedevs/ui';
 import uuid from 'uuid/v4';
 
 import { AllTechnologiesPicker } from '../../../../../commons/technologies/all_technologies_picker/all_technologies_picker';
@@ -23,24 +23,24 @@ const SkillsEditFormComponent = ({ helpers: { handleValueChange } }) => {
 
     const { skills: errors } = validationErrors;
     const addItem = useCallback(
-        name =>
+        (name) =>
             handleValueChange(`skills[${values.skills.length}]`)({
                 name,
                 index: values.skills.length,
                 value: 50,
-                id: uuid()
+                id: uuid(),
             }),
         [values]
     );
     const deleteItem = useCallback(
-        id =>
+        (id) =>
             handleValueChange('skills')(
                 values.skills.filter(({ id: skillId }) => skillId !== id).map((skill, index) => ({ ...skill, index }))
             ),
         [values.skills]
     );
-    const onArrayChange = useCallback(array => handleValueChange('skills')(array), [values.skills]);
-    const onItemChange = useCallback(item => handleValueChange(`skills[${item.index}]`)(item), []);
+    const onArrayChange = useCallback((array) => handleValueChange('skills')(array), [values.skills]);
+    const onItemChange = useCallback((item) => handleValueChange(`skills[${item.index}]`)(item), []);
 
     const globalError = typeof errors === 'string' && errors;
 
@@ -52,7 +52,7 @@ const SkillsEditFormComponent = ({ helpers: { handleValueChange } }) => {
                 onDelete={deleteItem}
                 classes={{
                     container: classes.allTechnologies,
-                    technologiesList: classes.technologiesList
+                    technologiesList: classes.technologiesList,
                 }}
             />
             {!isMobile && <div className={classes.divider} />}

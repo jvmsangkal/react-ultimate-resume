@@ -5,7 +5,7 @@ import { createUseStyles } from 'react-jss';
 import { useDebounce } from 'use-debounce';
 
 import { Dialog, DialogActions, DialogContent } from '@material-ui/core';
-import { Button, TextField, Tooltip } from '@wld/ui';
+import { Button, TextField, Tooltip } from '@welovedevs/ui';
 
 import { DialogTitle } from '../dialog/dialog_title/dialog_title';
 import { LoadingSpinner } from '../loading_spinner/loading_spinner';
@@ -22,12 +22,12 @@ const SearchUnsplashDialogComponent = ({ open, onClose, onSelect }) => {
     const [query, setQuery] = useState('');
     const [debouncedQuery] = useDebounce(query, 500);
 
-    const handleInputChange = useCallback(event => setQuery(event.target.value), []);
+    const handleInputChange = useCallback((event) => setQuery(event.target.value), []);
 
     return (
         <Dialog
             classes={{
-                paper: classes.paper
+                paper: classes.paper,
             }}
             open={open}
             onClose={onClose}
@@ -37,7 +37,7 @@ const SearchUnsplashDialogComponent = ({ open, onClose, onSelect }) => {
             </DialogTitle>
             <DialogContent
                 classes={{
-                    root: classes.content
+                    root: classes.content,
                 }}
             >
                 <TextField
@@ -86,9 +86,9 @@ const Results = ({ query, debouncedQuery, onSelect, classes }) => {
                 alt: description,
                 credits: {
                     url: encodeURI(`${user.links.html}?utm_source=W3D Developer Profile&utm_medium=referral`),
-                    name: user.username
+                    name: user.username,
                 },
-                fromUnsplash: true
+                fromUnsplash: true,
             });
             // eslint-disable-next-line no-undef
             fetch(`${endpoints?.unsplashProxy}?url=${links.download_location}`);

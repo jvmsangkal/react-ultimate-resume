@@ -3,7 +3,7 @@ import React, { createContext, useCallback, useContext, useEffect, useMemo, useR
 import { createUseStyles, useTheme } from 'react-jss';
 import { animated, config, useTransition } from 'react-spring';
 
-import { Card } from '@wld/ui';
+import { Card } from '@welovedevs/ui';
 
 import { useMediaQuery } from '@material-ui/core';
 
@@ -28,7 +28,7 @@ const DEFAULT_TRANSITIONS_SPRING_PROPS = {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
-    config: config.default
+    config: config.default,
 };
 
 const ProfileCardComponent = ({
@@ -44,7 +44,7 @@ const ProfileCardComponent = ({
     customTransitionsSpringProps,
     customEditAction,
     isComplete = true,
-    side: sideProps
+    side: sideProps,
 }) => {
     const changeSideTimeout = useRef();
     const { mode } = useContext(DeveloperProfileContext);
@@ -66,20 +66,20 @@ const ProfileCardComponent = ({
         profileCardReducer,
         getProfileCardInitialState({
             variant,
-            side: sideProps
+            side: sideProps,
         })
     );
 
     useEffect(() => {
         dispatch({
             type: SET_VARIANT,
-            variant
+            variant,
         });
     }, [variant]);
     useEffect(() => {
         dispatch({
             type: SET_SIDE,
-            side: sideProps || SIDES.FRONT
+            side: sideProps || SIDES.FRONT,
         });
     }, [sideProps]);
 
@@ -90,7 +90,7 @@ const ProfileCardComponent = ({
     }, []);
 
     const isSmall = useMediaQuery(`(max-width: ${theme.screenSizes.small}px)`, {
-        defaultMatches: true
+        defaultMatches: true,
     });
 
     const transitionsSpringProps = useMemo(() => {
@@ -106,7 +106,7 @@ const ProfileCardComponent = ({
     const hasSideChanged = useRef(false);
 
     const setSide = useCallback(
-        newSide => {
+        (newSide) => {
             if (sideProps) {
                 return;
             }
@@ -117,7 +117,7 @@ const ProfileCardComponent = ({
                 () =>
                     dispatch({
                         type: SET_SIDE,
-                        side: newSide
+                        side: newSide,
                     }),
                 200
             );
@@ -141,10 +141,10 @@ const ProfileCardComponent = ({
         hasSideChanged.current = true;
     }, [side]);
 
-    const transitions = useTransition(side, item => `card_side_${item}_${kind}`, {
+    const transitions = useTransition(side, (item) => `card_side_${item}_${kind}`, {
         ...transitionsSpringProps,
         unique: isTransitionUnique,
-        immediate: !hasSideChanged.current
+        immediate: !hasSideChanged.current,
     });
     const handleAddButtonClick = useCallback(() => {
         setOpenEditDialog(true);
@@ -153,10 +153,10 @@ const ProfileCardComponent = ({
 
     const editButtonTransitions = useTransition(
         isEditingProfile,
-        item => (item ? 'visible_editing_button' : 'invisible_editing_button'),
+        (item) => (item ? 'visible_editing_button' : 'invisible_editing_button'),
         {
             ...PROFILE_CARD_EDIT_BUTTON_TRANSITIONS_SPRING_PROPS,
-            unique: true
+            unique: true,
         }
     );
 
@@ -184,7 +184,7 @@ const ProfileCardComponent = ({
                 {...(!isSmall &&
                     !sideProps && {
                         onMouseEnter: handleMouseEnter,
-                        onMouseLeave: handleMouseLeave
+                        onMouseLeave: handleMouseLeave,
                     })}
             >
                 {mode === 'edit' &&

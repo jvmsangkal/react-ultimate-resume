@@ -2,7 +2,7 @@ import React from 'react';
 
 import { createUseStyles } from 'react-jss';
 
-import { Tooltip, Typography } from '@wld/ui';
+import { Tooltip, Typography } from '@welovedevs/ui';
 
 import { styles } from './language_column_styles';
 
@@ -14,7 +14,7 @@ const LanguageColumnComponent = ({
     style,
     item: { value, language } = {},
     children,
-    itemsSize
+    itemsSize,
 }) => {
     const classes = useStyles({ value, color, itemsSize });
 

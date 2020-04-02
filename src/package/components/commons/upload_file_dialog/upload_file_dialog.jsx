@@ -2,7 +2,7 @@ import React, { useCallback, useContext } from 'react';
 
 import { FormattedMessage } from 'react-intl';
 
-import { Button } from '@wld/ui';
+import { Button } from '@welovedevs/ui';
 
 import { Dialog, DialogActions, DialogContent } from '@material-ui/core';
 
@@ -14,8 +14,8 @@ const UploadFileDialogComponent = ({ open, onClose, onFileUploaded }) => {
     const { onFilesUpload } = useContext(DeveloperProfileContext);
 
     const onDrop = useCallback(
-        files =>
-            onFilesUpload(files).then(url => {
+        (files) =>
+            onFilesUpload(files).then((url) => {
                 onFileUploaded(url);
                 return url;
             }),

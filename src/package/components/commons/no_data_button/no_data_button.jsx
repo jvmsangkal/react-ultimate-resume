@@ -1,14 +1,14 @@
-import { Button } from '@wld/ui';
+import { Button } from '@welovedevs/ui';
 
 import React from 'react';
 
 const NoDataButtonComponent = ({ handleAddButtonClick, children, classes: receivedClasses = {} }) => (
     <Button
         customClasses={{
-            container: receivedClasses.container
+            container: receivedClasses.container,
         }}
         style={{
-            color: 'inherit'
+            color: 'inherit',
         }}
         variant="outlined"
         onClick={handleAddButtonClick}

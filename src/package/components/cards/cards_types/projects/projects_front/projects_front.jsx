@@ -4,7 +4,7 @@ import { Twemoji } from 'react-emoji-render';
 import { FormattedMessage } from 'react-intl';
 import { createUseStyles } from 'react-jss';
 
-import { Typography } from '@wld/ui';
+import { Typography } from '@welovedevs/ui';
 
 import { ProfileCardActions } from '../../../../commons/profile_card/profile_card_actions/profile_card_actions';
 import { ProfileCardButton } from '../../../../commons/profile_card/profile_card_button/profile_card_button';
@@ -25,12 +25,12 @@ const ProjectsFrontComponent = ({ data, handleAddButtonClick }) => {
 
     const handleButtonClick = useCallback(() => setSide(side === SIDES.FRONT ? SIDES.BACK : SIDES.FRONT), [
         side,
-        setSide
+        setSide,
     ]);
 
     const [variant] = useCardVariant();
     const imageSrc = useMemo(() => data.projects?.[0]?.images?.url ?? DEFAULT_PROJECT_IMAGE, [
-        data.projects?.[0]?.images
+        data.projects?.[0]?.images,
     ]);
     const alt = data.projects?.[0]?.title;
 
@@ -68,7 +68,7 @@ const ProjectsFrontComponent = ({ data, handleAddButtonClick }) => {
                             id="Projects.front.action"
                             defaultMessage="See {count} project{count, plural, one {} other {s}}"
                             values={{
-                                count: data.projects?.length
+                                count: data.projects?.length,
                             }}
                         />
                     </ProfileCardButton>
@@ -86,7 +86,7 @@ const Content = ({ hasProject, projectTitle, handleAddButtonClick, classes }) =>
                     id="Projects.front.title"
                     defaultMessage="My <emoji>♥️</emoji> project : "
                     values={{
-                        emoji: value => <Twemoji svg text={value} />
+                        emoji: (value) => <Twemoji svg text={value} />,
                     }}
                 />
                 {projectTitle}
@@ -101,7 +101,7 @@ const Content = ({ hasProject, projectTitle, handleAddButtonClick, classes }) =>
             </Typography>
             <NoDataButton
                 classes={{
-                    container: classes.addButton
+                    container: classes.addButton,
                 }}
                 handleAddButtonClick={handleAddButtonClick}
             >

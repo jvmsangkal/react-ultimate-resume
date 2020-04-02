@@ -3,7 +3,7 @@ import React, { useCallback, useContext, useMemo, useRef } from 'react';
 import { createUseStyles, useTheme } from 'react-jss';
 import { useDebounce } from 'use-debounce';
 
-import { PopperCard, Checkbox } from '@wld/ui';
+import { PopperCard, Checkbox } from '@welovedevs/ui';
 
 import { PaletteVisual } from '../palette_visual/palette_visual';
 import { Context } from '../card_orderer/cards_orderer';
@@ -36,7 +36,7 @@ const CARD_TYPE_MAPPING = Object.freeze({
     studies: SchoolSvg,
     skills: SkillsSvg,
     soundtrack: SoundtrackSvg,
-    interestedBy: InterestedBySvg
+    interestedBy: InterestedBySvg,
 });
 
 const CardStubComponent = ({ data: { type, variant }, cardIndex, onItemChanged }) => {
@@ -49,7 +49,7 @@ const CardStubComponent = ({ data: { type, variant }, cardIndex, onItemChanged }
     const Component = useMemo(() => CARD_TYPE_MAPPING[type] ?? (() => null), []);
 
     const onVariantChanged = useCallback(
-        value => () => {
+        (value) => () => {
             onItemChanged(cardIndex, { type, variant: value });
         },
         [onItemChanged]
@@ -72,7 +72,7 @@ const CardStubComponent = ({ data: { type, variant }, cardIndex, onItemChanged }
 
 const CardVariants = ({ variant, onVariantChanged, classes }) => {
     const theme = useTheme();
-    const handleMouseDown = useCallback(event => {
+    const handleMouseDown = useCallback((event) => {
         event.preventDefault();
         event.stopPropagation();
     }, []);
@@ -92,13 +92,13 @@ const CardVariants = ({ variant, onVariantChanged, classes }) => {
                         <PaletteVisual
                             classes={{
                                 color: classes.cardVariantsColor,
-                                tooltipPopper: classes.cardVariantsTooltipPopper
+                                tooltipPopper: classes.cardVariantsTooltipPopper,
                             }}
                             translations={CARD_STUB_TRANSLATIONS}
                             palette={Object.entries(colorScheme || {}).reduce(
                                 (acc, [key, colorName]) => ({
                                     ...acc,
-                                    [key]: { 500: getHexFromPaletteColor(theme, colorName) }
+                                    [key]: { 500: getHexFromPaletteColor(theme, colorName) },
                                 }),
                                 {}
                             )}

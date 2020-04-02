@@ -5,7 +5,7 @@ import { createUseStyles } from 'react-jss';
 import { animated, useTransition } from 'react-spring';
 
 import { FormattedMessage, useIntl } from 'react-intl';
-import { TextField, Typography } from '@wld/ui';
+import { TextField, Typography } from '@welovedevs/ui';
 import { CheckboxGroup } from '../../../../../commons/checkbox_group/checkbox_group';
 import { CheckboxField } from '../../../../../commons/checkbox_field/checkbox_group';
 import { JobIssues } from '../../../../../../utils/enums/job_issues/job_issues_utils';
@@ -26,17 +26,17 @@ const CurrentJobIssuesFieldComponent = ({
     toggleOtherCurrentJobIssue,
     otherCurrentJobIssue,
     handleChange,
-    currentJobIssues
+    currentJobIssues,
 }) => {
     const classes = useStyles();
     const { formatMessage } = useIntl();
 
     const transitions = useTransition(
         otherCurrentJobIssue !== null,
-        item => `other_field_${item ? 'visible' : 'invisible'}`,
+        (item) => `other_field_${item ? 'visible' : 'invisible'}`,
         {
             ...CURRENT_JOB_ISSUES_FIELD_OTHER_TEXTFIELD_TRANSITIONS_SPRING_PROPS,
-            unique: true
+            unique: true,
         }
     );
 

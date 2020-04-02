@@ -5,7 +5,7 @@ import { createUseStyles } from 'react-jss';
 import { animated, useTransition } from 'react-spring';
 
 import { FormattedMessage, useIntl } from 'react-intl';
-import { TextField, Typography } from '@wld/ui';
+import { TextField, Typography } from '@welovedevs/ui';
 import { CheckboxGroup } from '../../../../../commons/checkbox_group/checkbox_group';
 import { CheckboxField } from '../../../../../commons/checkbox_field/checkbox_group';
 import { JobPerks } from '../../../../../../utils/enums/job_perks/job_perks_utils';
@@ -27,14 +27,14 @@ const PerksFieldComponent = ({
     toggleOtherPerk,
     otherPerk,
     handleChange,
-    perks
+    perks,
 }) => {
     const classes = useStyles();
     const { formatMessage } = useIntl();
 
-    const transitions = useTransition(otherPerk !== null, item => `other_field_${item ? 'visible' : 'invisible'}`, {
+    const transitions = useTransition(otherPerk !== null, (item) => `other_field_${item ? 'visible' : 'invisible'}`, {
         ...PERKS_FIELD_OTHER_TEXTFIELD_TRANSITIONS_SPRING_PROPS,
-        unique: true
+        unique: true,
     });
 
     return (

@@ -10,7 +10,7 @@ import uuid from 'uuid/v4';
 import { arrayMove } from 'react-sortable-hoc';
 
 import useMediaQuery from '@material-ui/core/useMediaQuery/useMediaQuery';
-import { Typography } from '@wld/ui';
+import { Typography } from '@welovedevs/ui';
 
 import { SearchGifsDialog } from '../../../../../commons/search_gif_dialog/search_gifs_dialog';
 import { AddButtonDashed } from '../../../../../commons/add_button_dashed/add_button_dashed';
@@ -26,7 +26,7 @@ const GifsEditFormComponent = ({ helpers: { handleValueChange } }) => {
     const classes = useStyles();
     const {
         values: { interests },
-        errors: validationErrors
+        errors: validationErrors,
     } = useFormikContext();
 
     const [selectedIndex, setSelectedIndex] = useState(null);
@@ -41,7 +41,7 @@ const GifsEditFormComponent = ({ helpers: { handleValueChange } }) => {
     }, []);
 
     const interestDeleted = useCallback(
-        id => {
+        (id) => {
             handleValueChange('interests')(Object.values(omit(keyedValues, id)));
         },
         [JSON.stringify(keyedValues), JSON.stringify(interests)]
@@ -52,7 +52,7 @@ const GifsEditFormComponent = ({ helpers: { handleValueChange } }) => {
         handleValueChange('interests')(
             interests.concat({
                 index: interests.length,
-                id
+                id,
             })
         );
 
@@ -94,7 +94,7 @@ const GifsEditFormComponent = ({ helpers: { handleValueChange } }) => {
             {isMobile && (
                 <AddButtonDashed
                     classes={{
-                        container: classes.addButtonDashed
+                        container: classes.addButtonDashed,
                     }}
                     onClick={addInterest}
                 />
@@ -110,7 +110,7 @@ const GifsEditFormComponent = ({ helpers: { handleValueChange } }) => {
             {!isMobile && (
                 <AddButtonDashed
                     classes={{
-                        container: classes.addButtonDashed
+                        container: classes.addButtonDashed,
                     }}
                     onClick={addInterest}
                 />

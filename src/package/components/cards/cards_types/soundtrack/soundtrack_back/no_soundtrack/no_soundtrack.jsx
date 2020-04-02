@@ -3,7 +3,7 @@ import React from 'react';
 import { createUseStyles } from 'react-jss';
 import { FormattedMessage } from 'react-intl';
 
-import { Typography } from '@wld/ui';
+import { Typography } from '@welovedevs/ui';
 
 import { styles } from './no_soundtrack_styles';
 import { NoDataButton } from '../../../../../commons/no_data_button/no_data_button';
@@ -23,7 +23,7 @@ const NoSoundTrackComponent = ({ handleAddButtonClick }) => {
             <NoDataButton
                 handleAddButtonClick={handleAddButtonClick}
                 classes={{
-                    container: classes.button
+                    container: classes.button,
                 }}
             >
                 <FormattedMessage id="SoundTrack.noSoundTrack.buttonLabel" defaultMessage="Ajouter une playlist" />

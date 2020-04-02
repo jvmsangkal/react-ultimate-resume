@@ -3,7 +3,7 @@ import React, { useCallback, useContext } from 'react';
 import { createUseStyles } from 'react-jss';
 import { FormattedMessage } from 'react-intl';
 
-import { Button, Typography } from '@wld/ui';
+import { Button, Typography } from '@welovedevs/ui';
 
 import { Dialog, DialogContent, DialogActions } from '@material-ui/core';
 
@@ -26,7 +26,7 @@ const EditBannerImageDialogComponent = ({ open, onClose, onChange }) => {
     const [openSearchUnsplashDialog, setSearchUnsplashDialogOpened, setSearchUnsplashDialogClosed] = useCallbackOpen();
 
     const onImageSelected = useCallback(
-        payload => {
+        (payload) => {
             onChange(payload);
             onClose();
             setSearchUnsplashDialogClosed();
@@ -35,8 +35,8 @@ const EditBannerImageDialogComponent = ({ open, onClose, onChange }) => {
     );
 
     const onDrop = useCallback(
-        files =>
-            onFilesUpload(files).then(url => {
+        (files) =>
+            onFilesUpload(files).then((url) => {
                 onImageSelected({ url });
                 return url;
             }),
@@ -62,7 +62,7 @@ const EditBannerImageDialogComponent = ({ open, onClose, onChange }) => {
                             variant="outlined"
                             onClick={setSearchUnsplashDialogOpened}
                             customClasses={{
-                                container: classes.button
+                                container: classes.button,
                             }}
                         >
                             <FormattedMessage

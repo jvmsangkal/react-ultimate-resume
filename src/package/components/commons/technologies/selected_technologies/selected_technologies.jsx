@@ -5,7 +5,7 @@ import { createUseStyles } from 'react-jss';
 import { FormattedMessage } from 'react-intl';
 import { arrayMove, SortableContainer, SortableElement, SortableHandle } from 'react-sortable-hoc';
 
-import { Card, List, Tooltip, Typography } from '@wld/ui';
+import { Card, List, Tooltip, Typography } from '@welovedevs/ui';
 
 import { SliderWithPopper } from '../../slider_with_popper/slider_with_popper';
 
@@ -22,7 +22,7 @@ const TechnologyRow = SortableElement(({ item, onRemove, onChange, classes, item
     const { technologies } = useTechnologies();
 
     const sliderChange = useCallback(
-        e => {
+        (e) => {
             onChange({ ...item, value: Number(e.target.value) });
         },
         [item, onChange]
@@ -58,7 +58,7 @@ const TechnologyRow = SortableElement(({ item, onRemove, onChange, classes, item
                 <div className={classes.sliderValueContainer}>
                     <Typography
                         customClasses={{
-                            container: classes.sliderValue
+                            container: classes.sliderValue,
                         }}
                         color="dark"
                         variant="label"
@@ -80,8 +80,8 @@ const TechnologyRow = SortableElement(({ item, onRemove, onChange, classes, item
                         classes={{ container: classes.slider }}
                         popperCardProps={{
                             customClasses: {
-                                popper: classes.popper
-                            }
+                                popper: classes.popper,
+                            },
                         }}
                     />
                 </div>
@@ -124,7 +124,7 @@ const SelectedTechnologiesComponent = ({
     onDelete,
     className,
     onItemChange,
-    classes: receivedClasses = {}
+    classes: receivedClasses = {},
 }) => {
     const classes = useStyles();
     const itemsLength = useMemo(() => items.length, [items]);

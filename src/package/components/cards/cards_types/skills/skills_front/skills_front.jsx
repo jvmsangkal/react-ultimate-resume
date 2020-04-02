@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import { createUseStyles, useTheme } from 'react-jss';
 import chroma from 'chroma-js';
 
-import { Typography } from '@wld/ui';
+import { Typography } from '@welovedevs/ui';
 import { ProfileCardPaddedFront } from '../../../../commons/profile_card/profile_card_padded_front/profile_card_padding_front';
 import { CenterContentContainer } from '../../../../commons/center_content_container/center_content_container';
 import { ProfileCardFrontTypography } from '../../../../commons/profile_card/profile_card_front_typography/profile_card_front_typography';
@@ -30,7 +30,7 @@ const SkillsFrontComponent = ({ data, handleAddButtonClick }) => {
 
     const handleButtonClick = useCallback(() => setSide(side === SIDES.FRONT ? SIDES.BACK : SIDES.FRONT), [
         side,
-        setSide
+        setSide,
     ]);
 
     const { technologies } = useTechnologies();
@@ -90,7 +90,7 @@ const Content = ({ hasSkill, techno, handleAddButtonClick, classes }) => {
             <NoDataButton
                 handleAddButtonClick={handleAddButtonClick}
                 classes={{
-                    container: classes.addButton
+                    container: classes.addButton,
                 }}
             >
                 <FormattedMessage id="Skills.noSkill.buttonLabel" defaultMessage="Ajouter une compétence" />
@@ -107,8 +107,9 @@ const Picture = ({ techno, classes }) => {
         const hex = getHexFromPaletteColor(theme, backgroundColor);
         const luminance = chroma(hex).luminance();
         if (luminance < 0.98) {
-            return `https://process.filestackapi.com/output=format:png/negative/modulate=brightness:1000/compress/${techno?.handle ||
-                DEFAULT_TECHNO_HANDLE}`;
+            return `https://process.filestackapi.com/output=format:png/negative/modulate=brightness:1000/compress/${
+                techno?.handle || DEFAULT_TECHNO_HANDLE
+            }`;
         }
         return `https://process.filestackapi.com/output=format:png/${techno?.handle || DEFAULT_TECHNO_HANDLE}`;
     }, [techno, theme, backgroundColor]);
